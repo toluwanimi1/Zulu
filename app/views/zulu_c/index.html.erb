@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+<title>Website Idea</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="http://www.w3schools.com/lib/w3.css">
+    
+  
+    
+    
+<body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/annyang/2.6.0/annyang.min.js"></script>
+<!-- Navbar (sit on top) -->
+<div class="w3-top">
+  <ul class="w3-navbar w3-white w3-wide w3-padding-8 w3-card-2">
+    <li>
+      <a href="#home" class="w3-margin-left"><b>Zulu</b>Expedia</a>
+    </li>
+    <!-- Float links to the right. Hide them on small screens -->
+    <li class="w3-right w3-hide-small">
+      <a href="#hotels" class="w3-left">Hotels</a>
+      <a href="#FLights" class="w3-left">Flights</a>
+      <a href="events" class="w3-left w3-margin-right">Events</a>
+    </li>
+  </ul>
+    </div>
+    
+<style> 
+          .main {padding-top: 200px}
+input[type=text] {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border: 1px solid #555;
+    outline: none;
+}
+
+input[type=text]:focus {
+    background-color: lightgray;
+}
+    
+    #fgb  {
+        padding: 70px;
+        margin-top: 150px;
+        background-color: #171717;
+        border-radius: 25px;
+        opacity: 0.7;
+    }
+    #fname {
+       opacity: 1
+        
+    }
+    body {
+        background-image: url(THUMB__yzt8.jpg);
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-position: center center;
+        
+        
+    }
+    .central {
+        
+       display: inline-block;
+        vertical-align: middle;
+    }
+    button {
+        border-radius: 10px;
+        font-size: 130px;
+    }
+    #bb {
+        margin-top: 150px;
+    }
+    </style>
+</head>
+<body>
+    
+<div id="fgb" class="central" >
+<form>
+  <div><input class="bob" type="text" placeholder="First Name" id="fname" name="fname"style="width: 500px;">
+  <input type="text" placeholder="Last Name" id="lname" name="lname"style="width: 500px;"></div>
+      <input type="text" placeholder="Flying From" id="fname" name="fname" style="width: 500px;">
+  <input type="text"placeholder="Flying to" id="lname" name="lname" style="width: 500px;">
+    <div>
+  <input type="text" placeholder="Departing" id="lname" name="lname"style="width: 500px;">
+    <input type="text" placeholder="Returning" id="lname" name="lname"style="width: 500px;"></div>
+</form>
+
+<select> <option># Adults</option> <option>1</option> <option>2</option> <option>3</option> <option>4</option> <option>5</option> <option>6</option> </select>
+
+<select> <option># Childern </option> <option>1</option> <option>2</option> <option>3</option> <option>4</option> <option>5</option> <option>6</option> </select>
+    </div>
+    <div id="bb" class="central">
+    <button id="start_listening"> 🎤
+        
+        </button>
+    
+    </div>
+    
+</body>
+    <script>
+ //annyang.start();
+var start_listening_button = document.getElementById("start_listening");
+ function Say_Hello(){
+     alert("Hello how may I help you")
+ }
+         var commands = {
+    'Hello': Say_Hello
+  };
+
+  // Add our commands to annyang
+  annyang.addCommands(commands);
+
+
+start_listening_button.addEventListener("click", function(event) { 
+	annyang.start()
+});
+</script>
+</html>
