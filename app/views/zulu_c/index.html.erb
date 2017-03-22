@@ -5,11 +5,11 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="http://www.w3schools.com/lib/w3.css">
     
-  
+  <script   src="https://code.jquery.com/jquery-3.1.1.js"   integrity="sha256-16cdPddA6VdVInumRGo6IbivbERE8p7CQR3HzTBuELA="   crossorigin="anonymous"></script>
     
     
 <body>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/annyang/2.6.0/annyang.min.js"></script>
+<script src="annyang.js"></script>
 <!-- Navbar (sit on top) -->
 <div class="w3-top">
   <ul class="w3-navbar w3-white w3-wide w3-padding-8 w3-card-2">
@@ -22,7 +22,7 @@
       <a href="#FLights" class="w3-left">Flights</a>
       <a href="events" class="w3-left w3-margin-right">Events</a>
     </li>
-  </ul>
+    </ul>
     </div>
     
 <style> 
@@ -52,7 +52,7 @@ input[type=text]:focus {
         
     }
     body {
-        background-image: url(THUMB__yzt8.jpg);
+        background-image: url(background_flower.jpg);
         background-repeat: no-repeat;
         background-attachment: fixed;
         background-position: center center;
@@ -63,6 +63,7 @@ input[type=text]:focus {
         
        display: inline-block;
         vertical-align: middle;
+/*
     }
     button {
         border-radius: 10px;
@@ -70,23 +71,68 @@ input[type=text]:focus {
     }
     #bb {
         margin-top: 150px;
+*/
+        
     }
+    
+    #bb {
+	-moz-box-shadow:inset 0px 1px 0px 0px #ffffff;
+	-webkit-box-shadow:inset 0px 1px 0px 0px #ffffff;
+	box-shadow:inset 0px 1px 0px 0px #ffffff;
+	background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #ededed), color-stop(1, #dfdfdf));
+	background:-moz-linear-gradient(top, #ededed 5%, #dfdfdf 100%);
+	background:-webkit-linear-gradient(top, #ededed 5%, #dfdfdf 100%);
+	background:-o-linear-gradient(top, #ededed 5%, #dfdfdf 100%);
+	background:-ms-linear-gradient(top, #ededed 5%, #dfdfdf 100%);
+	background:linear-gradient(to bottom, #ededed 5%, #dfdfdf 100%);
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#ededed', endColorstr='#dfdfdf',GradientType=0);
+	background-color:#ededed;
+	-moz-border-radius:6px;
+	-webkit-border-radius:6px;
+	border-radius:7px;
+	border:1px solid #dcdcdc;
+	display:inline-block;
+	cursor:pointer;
+	color:#777777;
+	font-family:Arial;
+	font-size:140px;
+	font-weight:bold;
+	padding:6px 2px;
+	text-decoration:none;
+	text-shadow:0px 1px 0px #ffffff;
+}
+#bb:hover {
+	background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #dfdfdf), color-stop(1, #ededed));
+	background:-moz-linear-gradient(top, #dfdfdf 5%, #ededed 100%);
+	background:-webkit-linear-gradient(top, #dfdfdf 5%, #ededed 100%);
+	background:-o-linear-gradient(top, #dfdfdf 5%, #ededed 100%);
+	background:-ms-linear-gradient(top, #dfdfdf 5%, #ededed 100%);
+	background:linear-gradient(to bottom, #dfdfdf 5%, #ededed 100%);
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#dfdfdf', endColorstr='#ededed',GradientType=0);
+	background-color:#dfdfdf;
+}
+#bb:active {
+	position:relative;
+	top:1x;
+}
+    
+    
     </style>
 </head>
 <body>
     
 <div id="fgb" class="central" >
 <form>
-  <div><input class="bob" type="text" placeholder="First Name" id="fname" name="fname"style="width: 500px;">
-  <input type="text" placeholder="Last Name" id="lname" name="lname"style="width: 500px;"></div>
-      <input type="text" placeholder="Flying From" id="fname" name="fname" style="width: 500px;">
-  <input type="text"placeholder="Flying to" id="lname" name="lname" style="width: 500px;">
+  <div><input class="bob" type="text" placeholder="First Name" id="fname1" name="fname1"style="width: 500px;">
+  <input type="text" placeholder="Last Name" id="lname1" name="lname2"style="width: 500px;"></div>
+      <input type="text" placeholder="Flying From" id="fname3" name="fname3" style="width: 500px;">
+  <input type="text"placeholder="Flying to" id="lname4" name="lname4" style="width: 500px;">
     <div>
-  <input type="text" placeholder="Departing" id="lname" name="lname"style="width: 500px;">
-    <input type="text" placeholder="Returning" id="lname" name="lname"style="width: 500px;"></div>
+  <input type="text" placeholder="Departing" id="lname5" name="lname5"style="width: 500px;">
+    <input type="text" placeholder="Returning" id="lname6" name="lname6"style="width: 500px;"></div>
 </form>
 
-<select> <option># Adults</option> <option>1</option> <option>2</option> <option>3</option> <option>4</option> <option>5</option> <option>6</option> </select>
+<select id=Adults> <option># Adults</option> <option value="won">1</option> <option value="2">2</option> <option value="3">3</option> <option value="4">4</option> <option>5</option> <option>6</option> </select>
 
 <select> <option># Childern </option> <option>1</option> <option>2</option> <option>3</option> <option>4</option> <option>5</option> <option>6</option> </select>
     </div>
@@ -104,10 +150,62 @@ var start_listening_button = document.getElementById("start_listening");
  function Say_Hello(){
      alert("Hello how may I help you")
  }
-         var commands = {
-    'Hello': Say_Hello
-  };
+         function setAdults(num){
+             alert(num)
+    $("#Adults").val(num).change()
+}
 
+        
+ $(document).ready(function(){ console.log("jQuery?") })  
+ function typefirstname(first){
+             
+         
+  $("#fname1").val(first)
+        }
+function hi_(){
+    alert("Hi Jack")
+}
+      
+
+  function speak(){
+    alert("Hi Jack")
+  }
+    
+        $(document).ready(function(){ console.log("jQuery?") })  
+ function typelastname(last){
+             
+         
+  $("#lname1").val(last)
+            
+        
+}
+        
+         $(document).ready(function(){ console.log("jQuery?") })  
+ function typeflyingfrom(flyingfrom){
+             
+         
+  $("#fname3").val(flyingfrom)
+            
+        
+}    
+        $(document).ready(function(){ console.log("jQuery?") })  
+ function typeflyingto(flyingto){
+             
+         
+  $("#lname4").val(flyingto)
+            
+        
+}   
+          
+        var commands= {
+            'hi': hi_,
+             'Hello': Say_Hello,
+            'first *first':typefirstname,
+            'last *last':typelastname,
+            "adults *num": setAdults,
+             'flying from *flyingfrom':typeflyingfrom,
+            'flying to *flyingto':typeflyingto,
+        };
   // Add our commands to annyang
   annyang.addCommands(commands);
 
