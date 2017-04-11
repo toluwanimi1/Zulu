@@ -1,0 +1,39 @@
+.uganda{ 
+ 
+border: 50 px;
+    
+    
+}
+
+.Nigeria{
+    
+    left: auto
+}
+
+button.accordion {
+    background-color: #eee;
+    color: #444;
+    cursor: pointer;
+    padding: 18px;
+    width: 100%;
+    text-align: left;
+    border: none;
+    outline: none;
+    transition: 0.4s;
+}
+
+
+button.accordion.active, button.accordion:hover {
+    background-color: bisque;
+}
+
+
+div.panel {
+    padding: 0 18px;
+    background-color: whitesmoke;
+    display: none;
+}
+body {
+    background-image: url("https://www.google.com/search?q=world+map&rlz=1C1CHBF_enUS731US731&espv=2&tbm=isch&imgil=mlgXptXGdrkvgM%253A%253B19EM_yJbKFXQIM%253Bhttp%25253A%25252F%25252Fgeology.com%25252Fworld%25252Fworld-map.shtml&source=iu&pf=m&fir=mlgXptXGdrkvgM%253A%252C19EM_yJbKFXQIM%252C_&usg=__24nCNqIJ2jbTMWdNTp4IwtBki-Q%3D&biw=1920&bih=974&ved=0ahUKEwjD27XjnOnSAhXICMAKHUI1Dq8QyjcINQ&ei=0fbRWIOvO8iRgAbC6rj4Cg#imgrc=mlgXptXGdrkvgM:");
+    background-color: #white;
+}

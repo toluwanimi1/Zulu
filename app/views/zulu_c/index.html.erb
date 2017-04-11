@@ -1,14 +1,17 @@
 <!DOCTYPE html>
 <html>
 <title>Website Idea</title>
+    <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="http://www.w3schools.com/lib/w3.css">
+<link rel="stylesheet" href="w3.css">
     
   <script   src="https://code.jquery.com/jquery-3.1.1.js"   integrity="sha256-16cdPddA6VdVInumRGo6IbivbERE8p7CQR3HzTBuELA="   crossorigin="anonymous"></script>
     
     
 <body>
+    
+   
 <script src="annyang.js"></script>
 <!-- Navbar (sit on top) -->
 <div class="w3-top">
@@ -24,6 +27,17 @@
     </li>
     </ul>
     </div>
+    
+    
+    <head>
+       <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<script>$(document).ready(function(){ $( ".accordion" ).accordion(); } )</script>
+
+
+
+<head/>
+    
+    <head/>
     
 <style> 
           .main {padding-top: 200px}
@@ -41,80 +55,92 @@ input[type=text]:focus {
 }
     
     #fgb  {
-        padding: 70px;
-        margin-top: 150px;
-        background-color: #171717;
-        border-radius: 25px;
+        padding: 30px;
+        background-color:white;
+        border-radius: 10px;
+        width:40%;
         opacity: 0.7;
+        margin-left:90px;
+        margin-bottom:80px;
+/*        position:absolute;*/
+       
+       
     }
+    
+    #tyac {
+        position: absolute;
+        text-align:center;
+        margin-top:500px;
+        left:0px;
+        right:0px;
+        
+    
+        
+        
+        
+        
+        
+        
+        
+    }
+    button.accordion {
+    background-color: darkgray;
+    
+    color: #444;
+    cursor: pointer;
+    padding: 18px;
+    width:80%;
+    border: none;
+    outline: none;
+    transition: 5s;
+    text-align: center;
+    border-radius:15px;
+    
+}
+
+
+button.accordion.active, button.accordion:hover {
+/*    background-color: bisque;*/
+}
+
+
+/*
+div.panel {
+  
+    background-color: whitesmoke;
+    display: none;
+*/
+}
+    
+    
+    
+    
+    
     #fname {
        opacity: 1
         
     }
     body {
-        background-image: url(background_flower.jpg);
+        background-image:url("Splash-and-Save-Unbelievable-Deals-on-Water-Fun-Vacations-5e0175df544541199d7f7d3ce3ad6875.jpg");
         background-repeat: no-repeat;
-        background-attachment: fixed;
-        background-position: center center;
-        
+        background-attachment: absolute;
+        background-position:center ;
+        background-size:88%;
+        background-position: absolute;
+        margin-top:100px;
         
     }
     .central {
         
        display: inline-block;
         vertical-align: middle;
-/*
-    }
-    button {
-        border-radius: 10px;
-        font-size: 130px;
-    }
-    #bb {
-        margin-top: 150px;
-*/
+            
+        
         
     }
+ 
     
-    #bb {
-	-moz-box-shadow:inset 0px 1px 0px 0px #ffffff;
-	-webkit-box-shadow:inset 0px 1px 0px 0px #ffffff;
-	box-shadow:inset 0px 1px 0px 0px #ffffff;
-	background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #ededed), color-stop(1, #dfdfdf));
-	background:-moz-linear-gradient(top, #ededed 5%, #dfdfdf 100%);
-	background:-webkit-linear-gradient(top, #ededed 5%, #dfdfdf 100%);
-	background:-o-linear-gradient(top, #ededed 5%, #dfdfdf 100%);
-	background:-ms-linear-gradient(top, #ededed 5%, #dfdfdf 100%);
-	background:linear-gradient(to bottom, #ededed 5%, #dfdfdf 100%);
-	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#ededed', endColorstr='#dfdfdf',GradientType=0);
-	background-color:#ededed;
-	-moz-border-radius:6px;
-	-webkit-border-radius:6px;
-	border-radius:7px;
-	border:1px solid #dcdcdc;
-	display:inline-block;
-	cursor:pointer;
-	color:#777777;
-	font-family:Arial;
-	font-size:140px;
-	font-weight:bold;
-	padding:6px 2px;
-	text-decoration:none;
-	text-shadow:0px 1px 0px #ffffff;
-}
-#bb:hover {
-	background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #dfdfdf), color-stop(1, #ededed));
-	background:-moz-linear-gradient(top, #dfdfdf 5%, #ededed 100%);
-	background:-webkit-linear-gradient(top, #dfdfdf 5%, #ededed 100%);
-	background:-o-linear-gradient(top, #dfdfdf 5%, #ededed 100%);
-	background:-ms-linear-gradient(top, #dfdfdf 5%, #ededed 100%);
-	background:linear-gradient(to bottom, #dfdfdf 5%, #ededed 100%);
-	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#dfdfdf', endColorstr='#ededed',GradientType=0);
-	background-color:#dfdfdf;
-}
-#bb:active {
-	position:relative;
-	top:1x;
-}
+    
     
     
     </style>
@@ -123,27 +149,47 @@ input[type=text]:focus {
     
 <div id="fgb" class="central" >
 <form>
-  <div><input class="bob" type="text" placeholder="First Name" id="fname1" name="fname1"style="width: 500px;">
-  <input type="text" placeholder="Last Name" id="lname1" name="lname2"style="width: 500px;"></div>
-      <input type="text" placeholder="Flying From" id="fname3" name="fname3" style="width: 500px;">
-  <input type="text"placeholder="Flying to" id="lname4" name="lname4" style="width: 500px;">
+  <div><input class="bob" type="text" placeholder="First Name" id="fname1" name="fname1">
+  <input class="bob" type="text" placeholder="Last Name" id="lname1" name="lname2"></div>
+      <input class="bob" type="text" placeholder="City" id="fname3" name="fname3" >
+  <input class="bob" type="text"placeholder="Address" id="lname4" name="lname4">
     <div>
-  <input type="text" placeholder="Departing" id="lname5" name="lname5"style="width: 500px;">
-    <input type="text" placeholder="Returning" id="lname6" name="lname6"style="width: 500px;"></div>
-</form>
-
+  <input class="bob" type="text" placeholder="Arriving" id="lname5" name="lname5">
+    <input class="bob" type="text" placeholder="Departing" id="lname6" name="lname6"></div>
 <select id=Adults> <option># Adults</option> <option value="won">1</option> <option value="2">2</option> <option value="3">3</option> <option value="4">4</option> <option>5</option> <option>6</option> </select>
 
 <select> <option># Childern </option> <option>1</option> <option>2</option> <option>3</option> <option>4</option> <option>5</option> <option>6</option> </select>
+    </form>
     </div>
-    <div id="bb" class="central">
-    <button id="start_listening"> 🎤
-        
-        </button>
+    </body>
+   
     
+    <body>
+    <div id="tyac" class="central">   
+     <h1>Hotels</h1>
+    <div class="uganda accordion">
+    <button class="accordion">Asia</button>
+<div class="panel">
+  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer at consectetur dolor. Praesent ultrices porttitor lacus, non tristique ante eleifend a. Pellentesque semper urna sit amet libero vulputate, eget egestas mauris cursus. Integer et eros tempus, fringilla sapien vel, ultrices metus. Maecenas blandit lobortis metus at bibendum. Nulla in nisl lectus. Vestibulum sagittis mi ut magna imperdiet, in consectetur velit blandit. Etiam posuere fringilla venenatis. Nunc pharetra ultrices lacus, quis tincidunt ligula mollis at. Aliquam a iaculis libero, ac hendrerit dolor. Nunc ut tempus mi, vel dapibus sem.</p>
+</div>
+
+<button class="accordion">Africa</button>
+<div class="panel">
+  <p>Lorem ipsum...</p>
+</div>
+
+<button class="accordion">America</button>
+<div class="panel">
+  <p>Lorem ipsum...</p>
+</div>
+<button class="accordion">India</button>
+<div class="panel">
+  <p>Lorem ipsum...</p>
+        </div>
     </div>
-    
-</body>
+        </div>
+    </body>
+       
     <script>
  //annyang.start();
 var start_listening_button = document.getElementById("start_listening");
@@ -156,7 +202,7 @@ var start_listening_button = document.getElementById("start_listening");
 }
 
         
- $(document).ready(function(){ console.log("jQuery?") })  
+ $(document).ready(function(){ annyang.start() })  
  function typefirstname(first){
              
          
@@ -171,7 +217,7 @@ function hi_(){
     alert("Hi Jack")
   }
     
-        $(document).ready(function(){ console.log("jQuery?") })  
+        $(document).ready(function(){ annyang.start() })  
  function typelastname(last){
              
          
@@ -180,19 +226,19 @@ function hi_(){
         
 }
         
-         $(document).ready(function(){ console.log("jQuery?") })  
- function typeflyingfrom(flyingfrom){
+         $(document).ready(function(){ annyang.start() })  
+ function typeCity(City){
              
          
-  $("#fname3").val(flyingfrom)
+  $("#fname3").val(City)
             
         
 }    
-        $(document).ready(function(){ console.log("jQuery?") })  
+        $(document).ready(function(){ annyang.start() })  
  function typeflyingto(flyingto){
              
          
-  $("#lname4").val(flyingto)
+  $("#lname4").val(Address)
             
         
 }   
@@ -203,15 +249,16 @@ function hi_(){
             'first *first':typefirstname,
             'last *last':typelastname,
             "adults *num": setAdults,
-             'flying from *flyingfrom':typeflyingfrom,
-            'flying to *flyingto':typeflyingto,
+             'City *City':typeCity,
+//            'Address *Address':typeAddress,
         };
   // Add our commands to annyang
   annyang.addCommands(commands);
 
 
-start_listening_button.addEventListener("click", function(event) { 
-	annyang.start()
-});
+//start_listening_button.addEventListener("click", function(event) { 
+//	annyang.start()
+//});
 </script>
+    
 </html>
