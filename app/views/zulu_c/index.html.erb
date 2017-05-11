@@ -181,11 +181,12 @@ div.panel {
 <body>
     
 <div id="fgb" class="central" >
-<form>
-  <div><input class="bob" type="text" placeholder="First Name" id="fname1" name="fname1">
-  <input class="bob" type="text" placeholder="Last Name" id="lname1" name="lname2"></div>
-      <input class="bob" type="text" placeholder="City" id="fname3" name="fname3" >
-  <input class="bob" type="text"placeholder="Address" id="lname4" name="lname4">
+<form action="/ean" method="post">
+  <%= tag(:input, :type => "hidden", :name => request_forgery_protection_token.to_s, :value => form_authenticity_token) %>
+  <div><input class="bob" type="text" placeholder="First Name" id="fname1" name="fname">
+  <input class="bob" type="text" placeholder="Last Name" id="lname1" name="lname"></div>
+      <input class="bob" type="text" placeholder="City" id="fname3" name="city" >
+  <input class="bob" type="text"placeholder="Address" id="lname4" name="address">
 <!--
     <div>
         <div>Arriving</div>
@@ -202,12 +203,13 @@ div.panel {
 -->
     
         
-  <div><input class="bob" type="text" placeholder="Arriving" id="lname5" name="lname5">
-    <input class="bob" type="text" placeholder="Departing" id="lname6" name="lname6"></div>
+  <div>Arriving: <input class="bob" type="date" placeholder="Arriving" id="arriving" name="arriving">
+    Departing: <input class="bob" type="date" placeholder="Departing" id="departing" name="departing"></div>
 
-<select id=Adults> <option># Adults</option> <option value="won">1</option> <option value="two">2</option> <option value="3">3</option> <option value="four">4</option> <option vaule= "five">5</option> <option>6</option> </select>
+<select id="Adults" name="adults"> <option># Adults</option> <option>1</option> <option>2</option> <option>3</option> <option>4</option> <option>5</option> <option>6</option> </select>
 
-<select> <option># Childern </option> <option>1</option> <option>2</option> <option>3</option> <option>4</option> <option>5</option> <option>6</option> </select>
+<select id="children" name="children"> <option># Children </option> <option>1</option> <option>2</option> <option>3</option> <option>4</option> <option>5</option> <option>6</option> </select>
+  <input type="submit" value="Submit">
         
     </form>
     </div>
@@ -217,27 +219,18 @@ div.panel {
    
 <div id="accordion">
   <h3>Hotels</h3>
-  <div>
-    <p>
-    Mauris mauris ante, blandit et, ultrices a, suscipit eget, quam. Integer
-    ut neque. Vivamus nisi metus, molestie vel, gravida in, condimentum sit
-    amet, nunc. Nam a nibh. Donec suscipit eros. Nam mi. Proin viverra leo ut
-    odio. Curabitur malesuada. Vestibulum a velit eu ante scelerisque vulputate.
-    </p>
+  <div id="hotels">
+    <p></p>
   </div>
   <h3>Flights</h3>
   <div>
     <p>
-    Sed non urna. Donec et ante. Phasellus eu ligula. Vestibulum sit amet
-    purus. Vivamus hendrerit, dolor at aliquet laoreet, mauris turpis porttitor
-    velit, faucibus interdum tellus libero ac justo. Vivamus non quam. In
-    suscipit faucibus urna.
     </p>
   </div>
   <h3>Events</h3>
   <div>
     <p>
-   At the moment there are no Events availibe please give us your email so we can notifi you
+   At the moment there are no events available.  Please give us your email so we can notify you.
     </p>
       <form> 
           <div id="fgb" class="central"> <input type=text placeholder="Email Adress">
@@ -255,9 +248,30 @@ var start_listening_button = document.getElementById("start_listening");
  function Say_Hello(){
      alert("Hello how may I help you")
  }
-         function setAdults(num){
-             alert(num)
-    $("#Adults").val(num).change()
+  function setAdults(num){
+       var vals = {
+          "won": 1,
+          "to": 2,
+          "too": 2,
+          "3": 3,
+          "for": 4,
+          "5": 5,
+          "6": 6,
+       }
+    $("#Adults").val(vals[num]||num).change()
+}
+
+  function setChildren(num){
+     var vals = {
+        "won": 1,
+        "to": 2,
+        "too": 2,
+        "3": 3,
+        "for": 4,
+        "5": 5,
+        "6": 6,
+       }
+    $("#children").val(vals[num]||num).change()
 }
 
         
@@ -276,7 +290,7 @@ function hi_(){
     alert("Hi Jack")
   }
     
-        $(document).ready(function(){ annyang.start() })  
+
  function typelastname(last){
              
          
@@ -285,7 +299,7 @@ function hi_(){
         
 }
         
-         $(document).ready(function(){ annyang.start() })  
+
  function typeCity(City){
              
          
@@ -293,7 +307,7 @@ function hi_(){
             
         
 }    
-//        $(document).ready(function(){ annyang.start() })  
+
 // function typeflyingto(flyingto){
 //             
 //         
@@ -304,7 +318,7 @@ function hi_(){
 //        
 //}   
 //        
-//       $(document).ready(function(){ annyang.start() })  
+
 // function typeleavingwhen(leavingwhen){
 //             
 //         
@@ -314,20 +328,76 @@ function hi_(){
 //            
 //        
 //}          
-          
+  
+  function process_date(date){
+    var months = {
+      "January": "01",
+      "February": "02",
+      "March": "03",
+      "April": "04", 
+      "May": "05",
+      "June": "06",
+      "July": "07",
+      "August": "08",
+      "September": "09",
+      "October": "10",
+      "November": "11",
+      "December": "12",
+    }
+
+    var m = date.match(/(\w+) (\d+)(st|nd|rd|th)/)
+    var day = m[2]
+    while(day.length < 2){
+      day = "0" + day
+    }
+    if(m && months[m[1]]){
+      return `2017-${months[m[1]]}-${day}`
+    }
+  } 
+
+  function departing(date){
+    $("#departing").val(process_date(date))
+  }
+
+  function arriving(date){
+    $("#arriving").val(process_date(date)) 
+  }
+
+  function submit_form(){
+    $("form").submit()
+  }
+
         var commands= {
             'hi': hi_,
              'Hello': Say_Hello,
             'first *first':typefirstname,
             'last *last':typelastname,
             "adults *num": setAdults,
+            "children *num": setChildren,
              'City *City':typeCity,
+             "departing *date": departing,
+             "arriving *date": arriving,
+             "submit": submit_form,
 //            'Address *Address':typeAddress,
 //            'Departing *Departing':typeDeparting,
         };
   // Add our commands to annyang
   annyang.addCommands(commands);
 
+  $("form").submit(function(e){
+    e.preventDefault()
+    console.log("submit")
+    $("#hotels").html("<p>...</p>")
+    $.post("/ean", $(this).serialize())
+      .then(function(data){
+        $("#hotels").empty()
+        if(!data){ return }
+        html_string = "<table><tr><th>Name</th><th>About</th><th>Price Range</th>"
+        data.forEach((hotel) => { html_string += `<tr><td>${hotel.name}</td><td>${hotel.shortDescription.replace(/^&lt;p&gt;&lt;b&gt;Property Location&lt;\/b&gt; &lt;br \/&gt;/,"")}...</td><td>$${hotel.lowRate}-$${hotel.highRate}</td></tr>` })
+        html_string += "</table>"
+        $("#hotels").html(html_string)
+      })
+  })
 
 
 
