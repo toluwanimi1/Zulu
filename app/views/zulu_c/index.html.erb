@@ -14,7 +14,9 @@
   <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
   <script>
   $( function() {
-    $( "#accordion" ).accordion();
+    $( "#accordion" ).accordion({
+      heightStyle: "content",
+    });
   } );
   </script>
     
@@ -393,7 +395,7 @@ function hi_(){
         $("#hotels").empty()
         if(!data){ return }
         html_string = "<table><tr><th>Name</th><th>About</th><th>Price Range</th>"
-        data.forEach((hotel) => { html_string += `<tr><td>${hotel.name}</td><td>${hotel.shortDescription.replace(/^&lt;p&gt;&lt;b&gt;Property Location&lt;\/b&gt; &lt;br \/&gt;/,"")}...</td><td>$${hotel.lowRate}-$${hotel.highRate}</td></tr>` })
+        data.forEach((hotel) => { html_string += `<tr><td>${hotel.name}</td><td>${hotel.shortDescription.replace(/^&lt;p&gt;&lt;b&gt;Property Location&lt;\/b&gt; &lt;br \/&gt;/,"") }...</td><td>$${hotel.lowRate}-$${hotel.highRate}</td></tr>` })
         html_string += "</table>"
         $("#hotels").html(html_string)
       })
