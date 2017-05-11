@@ -205,8 +205,8 @@ div.panel {
 -->
     
         
-  <div>Arriving: <input class="bob" type="date" placeholder="Arriving" id="arriving" name="arriving">
-    Departing: <input class="bob" type="date" placeholder="Departing" id="departing" name="departing"></div>
+  <div>Arriving: <input class="bob" type="date" placeholder="Arriving" id="arriving" name="arriving"></div>
+    <div>Departing: <input class="bob" type="date" placeholder="Departing" id="departing" name="departing"></div>
 
 <select id="Adults" name="adults"> <option># Adults</option> <option>1</option> <option>2</option> <option>3</option> <option>4</option> <option>5</option> <option>6</option> </select>
 
@@ -394,8 +394,10 @@ function hi_(){
       .then(function(data){
         $("#hotels").empty()
         if(!data){ return }
+
+        if typeof data == "array"
         html_string = "<table><tr><th>Name</th><th>About</th><th>Price Range</th>"
-        data.forEach((hotel) => { html_string += `<tr><td>${hotel.name}</td><td>${hotel.shortDescription.replace(/^&lt;p&gt;&lt;b&gt;Property Location&lt;\/b&gt; &lt;br \/&gt;/,"") }...</td><td>$${hotel.lowRate}-$${hotel.highRate}</td></tr>` })
+        data.forEach((hotel) => { html_string += `<tr><td>${hotel.name}</td><td>${hotel.shortDescription.replace(/^&lt;p&gt;&lt;b&gt;Property Location&lt;\/b&gt; &lt;br \/&gt;/,"") }...</td><td>$${hotel.lowRate.toFixed(2)}-$${hotel.highRate.toFixed(2)}</td></tr>` })
         html_string += "</table>"
         $("#hotels").html(html_string)
       })
