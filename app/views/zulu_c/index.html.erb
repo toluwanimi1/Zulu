@@ -395,7 +395,6 @@ function hi_(){
         $("#hotels").empty()
         if(!data){ return }
 
-        if typeof data == "array"
         html_string = "<table><tr><th>Name</th><th>About</th><th>Price Range</th>"
         data.forEach((hotel) => { html_string += `<tr><td>${hotel.name}</td><td>${hotel.shortDescription.replace(/^&lt;p&gt;&lt;b&gt;Property Location&lt;\/b&gt; &lt;br \/&gt;/,"") }...</td><td>$${hotel.lowRate.toFixed(2)}-$${hotel.highRate.toFixed(2)}</td></tr>` })
         html_string += "</table>"
